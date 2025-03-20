@@ -1,5 +1,6 @@
 package controleur;
 
+import java.util.Objects;
 import villagegaulois.Village;
 
 public class ControlVerifierIdentite {
@@ -10,7 +11,11 @@ public class ControlVerifierIdentite {
 	}
 
 	public boolean verifierIdentite(String nomVendeur) {
-		//TODO a completer, attention le retour ne dit pas etre false :-)
-		return false;
+		boolean retour = false;
+		String[] nomHabithant = village.donnerVillageois();
+		for (int i=0 ; i<nomHabithant.length;i++) {
+			if (Objects.equals(nomHabithant[i],  nomVendeur)) retour = true;
+		}
+		return retour ;
 	}
 }
